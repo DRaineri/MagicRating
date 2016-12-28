@@ -1,0 +1,23 @@
+<head>
+	<!-- FontAwsome -->
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<title>Test 1</title>
+</head>
+<body>
+	<h1>Awesome library is comming !</h1>
+	<p>
+		I will give you : <span class="rating" data-current-rating=3></span>
+	</p>
+
+	<!-- Jquery needed -->
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="  crossorigin="anonymous"></script>
+
+	<!-- Scripts -->
+	<script type="text/javascript" src="../Library/magicRating.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('.rating').ratingInit();
+		});
+	</script>
+</body>
