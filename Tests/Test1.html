@@ -17,7 +17,11 @@
 	<script type="text/javascript" src="../Library/magicRating.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function(){
-			$('.rating').ratingInit();
+			$('.rating').ratingInit({
+				success: function(magicRatingWidget, rating){
+					alert(rating);
+				}
+			});
 		});
 	</script>
 </body>

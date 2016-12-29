@@ -1,5 +1,5 @@
 // Init function
-$.fn.ratingInit = function(){
+$.fn.ratingInit = function(config){
     var currentRating = $(this).data("currentRating");
 
     // Clear
@@ -33,6 +33,40 @@ $.fn.ratingInit = function(){
                 icon.addClass("fa-star-o");   
             }
         });
+    });
+
+    // Init click handler
+    $(this).on("click", ".magic-rating-icon", function()
+    {
+        // Get rating
+        var icon = $(this);
+        var magicRatingWidget = icon.parent();
+        var rating = icon.data("rating");
+
+        // Update rating
+        magicRatingWidget.children().each(function(){
+            if ($(this).data("rating") <= rating) 
+            {
+                if (!$(this).hasClass("fa-star")) 
+                {
+                    $(this).removeClass("fa-star-o");
+                    $(this).addClass("fa-star");
+                };
+                $(this).data("default", true);
+            }
+            else
+            {
+                if(!$(this).hasClass("fa-star-o"))
+                {
+                    $(this).removeClass("fa-star");
+                    $(this).addClass("fa-star-o");
+                }
+                $(this).data("default", false);
+            }
+        });
+
+        var callbackSuccess = config.success.bind(null, magicRatingWidget, rating);
+        callbackSuccess();
     });
 
     return this;
