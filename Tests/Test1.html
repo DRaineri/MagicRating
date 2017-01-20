@@ -6,11 +6,19 @@
 </head>
 <body>
 	<h1>Awesome library is comming !</h1>
+	<h3>Init 1</h3>
 	<p>
-		I will give you : <span id="rating" class="rating" data-current-rating=3 data-icon-bad='fa-snowflake-o'></span>
+		I will give you : <span id="rating" class="rating" data-current-rating=3 data-icon-bad='fa-snowflake-o' data-icon-good='fa-sun-o'></span>
 	</p>
 	<p>
-		I will give you : <span class="rating" data-current-rating=3></span>
+		I will give you : <span class="rating" data-current-rating=1></span>
+	</p>
+	<p>
+		I will give you : <span class="rating" data-current-rating=5 data-max-mark=8></span>
+	</p>
+	<h3>Init 2</h3>
+	<p>
+		I will give you : <span class="rating2" data-current-rating=5></span>
 	</p>
 
 	<!-- Jquery needed -->
@@ -20,13 +28,19 @@
 	<script type="text/javascript" src="../Library/magicRating.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function(){
-			$('.rating').ratingInit({
+			$('.rating').magicRatingInit({
 				success: function(magicRatingWidget, rating){
 					console.log(rating);
 				},
-				iconGood: "fa-meetup",
-				iconBad: "fa-ravelry",
+				iconGood: "fa-bicycle",
+				iconBad: "fa-car",
 			});
+			$(".rating2").magicRatingInit({
+				success: function(magicRatingWidget, rating){
+					console.log(rating);
+				},
+				maxMark: 6
+			})
 		});
 	</script>
 </body>

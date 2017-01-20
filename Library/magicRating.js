@@ -1,5 +1,7 @@
 // Init function
-$.fn.ratingInit = function(config){
+$.fn.magicRatingInit = function(config){
+
+    // Init each widget return by the selector
     for (widget of $(this))
     {
         var magicRatingWidget = $(widget);
@@ -13,17 +15,23 @@ $.fn.ratingInit = function(config){
         if (magicRatingWidget.data("iconBad") == null) {
             magicRatingWidget.data("iconBad", config.iconBad != null ? config.iconBad : "fa-star-o");      
         };
-        /*
+
+        // Max mark
+        if(magicRatingWidget.data("maxMark") == null){
+            magicRatingWidget.data("maxMark", config.maxMark != null ? config.maxMark : 5);
+        }
+        
         console.log(magicRatingWidget.data("iconGood"));
         console.log(magicRatingWidget.data("iconBad"));
-        */
-        // Clear
+        
+
+        // Clear the widget
         magicRatingWidget.html("");
 
         // Init icons
-        for(i=1; i<=5; i++) // TODO: number of rate star
+        for(i=1; i<=magicRatingWidget.data("maxMark"); i++) // TODO: number of rate star
         {
-            if(i <= $(this).data("currentRating"))
+            if(i <= magicRatingWidget.data("currentRating"))
             {
                 magicRatingWidget.append('<i class="fa '+magicRatingWidget.data("iconGood")+' magic-rating-icon" aria-hidden="true" data-default=true data-rating='+ i +'></i>');        
             }
