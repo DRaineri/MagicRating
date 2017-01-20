@@ -7,6 +7,9 @@
 <body>
 	<h1>Awesome library is comming !</h1>
 	<p>
+		I will give you : <span id="rating" class="rating" data-current-rating=3 data-icon-bad='fa-snowflake-o'></span>
+	</p>
+	<p>
 		I will give you : <span class="rating" data-current-rating=3></span>
 	</p>
 
@@ -19,8 +22,10 @@
 		$(document).ready(function(){
 			$('.rating').ratingInit({
 				success: function(magicRatingWidget, rating){
-					alert(rating);
-				}
+					console.log(rating);
+				},
+				iconGood: "fa-meetup",
+				iconBad: "fa-ravelry",
 			});
 		});
 	</script>
