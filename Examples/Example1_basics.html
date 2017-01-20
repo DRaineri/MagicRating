@@ -1,0 +1,46 @@
+<head>
+	<!-- FontAwsome -->
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<title>Example 1 - Basics</title>
+</head>
+<body>
+	<h1>Example 1 - Basics</h1>
+	<h3>This part is init by the same call</h3>
+	<p>
+		This is a default magicRating without any config more than needed: <span class="rating2" data-current-rating=5></span>
+	</p>
+	
+	<h3>And this part by another call</h3>
+	<p>
+		Here we override default icons with config object: <span class="rating" data-current-rating=1></span>
+	</p>
+	<p>
+		Here we override default icons with data-attributes (and btw icons set by config object): <span id="rating" class="rating" data-current-rating=3 data-icon-bad='fa-snowflake-o' data-icon-good='fa-sun-o'></span>
+	</p>
+	<p>
+		Here we keep the icons from config object but override the max mark with data-attribute : <span class="rating" data-current-rating=5 data-max-mark=8></span>
+	</p>
+
+	<!-- Jquery needed -->
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="  crossorigin="anonymous"></script>
+
+	<!-- Scripts -->
+	<script type="text/javascript" src="../Library/magicRating.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('.rating').magicRatingInit({
+				success: function(magicRatingWidget, rating){
+					alert(rating);
+				},
+				iconGood: "fa-bicycle",
+				iconBad: "fa-car",
+			});
+			$(".rating2").magicRatingInit({
+				success: function(magicRatingWidget, rating){
+					alert(rating);
+				}
+			})
+		});
+	</script>
+</body>
