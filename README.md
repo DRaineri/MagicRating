@@ -47,3 +47,4 @@ You can configure :
 |Positive icons|icon-good       |iconGood          |fontAwesome class|
 |Negative icons|icon-bad		|iconBad		   |fontAwesome class|
 |Set max mark  |max-mark		|maxMark		   | \>= 1|
+|Current rating|current-rating|currentRating|0<= rating <= maxMark|
