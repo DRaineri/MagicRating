@@ -6,12 +6,12 @@ $.fn.magicRatingInit = function(config){
     {
         var magicRatingWidget = $(widget);
         //// Get datas ////
-        // icon +
+        // Icon +
         if (magicRatingWidget.data("iconGood") == null) {
             magicRatingWidget.data("iconGood", config.iconGood != null ? config.iconGood : "fa-star");       
         };
 
-        // icon -
+        // Icon -
         if (magicRatingWidget.data("iconBad") == null) {
             magicRatingWidget.data("iconBad", config.iconBad != null ? config.iconBad : "fa-star-o");      
         };
@@ -21,15 +21,16 @@ $.fn.magicRatingInit = function(config){
             magicRatingWidget.data("maxMark", config.maxMark != null ? config.maxMark : 5);
         }
         
+        /*
         console.log(magicRatingWidget.data("iconGood"));
         console.log(magicRatingWidget.data("iconBad"));
-        
+        */
 
         // Clear the widget
         magicRatingWidget.html("");
 
         // Init icons
-        for(i=1; i<=magicRatingWidget.data("maxMark"); i++) // TODO: number of rate star
+        for(i=1; i<=magicRatingWidget.data("maxMark"); i++)
         {
             if(i <= magicRatingWidget.data("currentRating"))
             {
